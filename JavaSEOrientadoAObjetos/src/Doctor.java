@@ -1,37 +1,27 @@
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Doctor {
-    //Atributos
-    static int id = 0; //Autoincrement
-    private String name;
-    private String email;
+public class Doctor extends User {
+    //Atributo
     private String speciality;
 
-
-    Doctor(){
-        System.out.println("Construyendo el Objeto Doctor");
+    Doctor(String name, String email, String speciality){
+        super(name,email);
+        this.speciality = speciality;
+        System.out.println("El nombre del Doctor asignado es: " + name);
     }
 
-    Doctor(String name, String speciality){
-        System.out.println("El nombre del Doctor asignado es: " + name);
-        id++;
-        this.name = name;
+    public String getSpeciality() {
+        return speciality;
+    }
+
+    public void setSpeciality(String speciality) {
         this.speciality = speciality;
     }
-
-    //Comportamientos
-    public void showName(){
-        System.out.println(name);
-    }
-
-    public void showId(){
-        System.out.println("ID Doctor: " + id);
-    }
+    
 
     ArrayList<AvailableAppointment> availableAppointments = new ArrayList<>();
     public void addAvailableAppointment(Date date, String time){
-        //Aqui crea una instancia de Doctor y apunta al constructor de la clase static
         availableAppointments.add(new Doctor.AvailableAppointment(date,time));
     }
 
