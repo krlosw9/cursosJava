@@ -36,5 +36,6 @@ public class App {
                 //Esta tambien en una clase anonima, usada para crear una instancia de una interface
             }
         };
+        iSchedulable.schedule(null, null);
     }
 }
