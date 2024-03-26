@@ -33,6 +33,12 @@ public class Doctor extends User {
         +availableAppointments.toString()+"]";
     }
 
+    // Este metodo es obligatorio, porque la clase padre lo tiene como un metodo abstracto
+    public void showDataUser(){
+        System.out.println("Empleado Hostipal: Cruz verde");
+        System.out.println("Departamento: Pediatria");
+    }
+
     public ArrayList<AvailableAppointment> getAvailableAppointments(){
         return availableAppointments;
     }

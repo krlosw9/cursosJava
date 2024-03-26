@@ -65,5 +65,9 @@ public abstract class User {
         address + ", phoneNumber="+ phoneNumber + "]";
     }
 
+    // Dar un comportamiento personalizado en las clases hijas
+    // La implementacion del metodo abstracto es obligatorio en la clase hija
+    public abstract void showDataUser();
+
     
 }

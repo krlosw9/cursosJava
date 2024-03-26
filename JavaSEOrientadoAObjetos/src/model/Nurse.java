@@ -15,4 +15,10 @@ public class Nurse extends User{
     public void setSpeciality(String speciality) {
         this.speciality = speciality;
     }
+
+    // Este metodo es obligatorio, porque la clase padre lo tiene como un metodo abstracto
+    public void showDataUser(){
+        System.out.println("Empleado Hostipal: Cruz roja");
+        System.out.println("Departamento: Nutricion, Urgencias");
+    }
 }

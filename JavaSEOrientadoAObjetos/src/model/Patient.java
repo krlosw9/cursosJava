@@ -49,6 +49,12 @@ public class Patient extends User {
         this.blood = blood;
     }
 
+    // Este metodo es obligatorio, porque la clase padre lo tiene como un metodo abstracto
+    public void showDataUser(){
+        System.out.println("Paciente");
+        System.out.println("Historial completo desde nacimiento...");
+    }
+
     @Override
     public String toString() {
         return super.toString()+"\n Patient [birthday=" + birthday + ", weight=" + getWeight() 
