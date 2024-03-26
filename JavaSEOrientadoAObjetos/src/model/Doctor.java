@@ -1,3 +1,5 @@
+package model;
+
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -5,7 +7,7 @@ public class Doctor extends User {
     //Atributo
     private String speciality;
 
-    Doctor(String name, String email, String speciality){
+    public Doctor(String name, String email, String speciality){
         super(name,email);
         this.speciality = speciality;
         System.out.println("El nombre del Doctor asignado es: " + name);

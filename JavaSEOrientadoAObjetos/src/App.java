@@ -2,6 +2,9 @@
 
 import java.util.Date;
 
+import model.Doctor;
+import model.Patient;
+
 public class App {
     public static void main(String[] args) throws Exception {
         //showMenu();
