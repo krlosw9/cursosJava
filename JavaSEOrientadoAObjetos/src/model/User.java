@@ -1,6 +1,8 @@
 package model;
 
-public class User {
+// Una clase abstracta no puede ser instanciada
+// Esta clase solo es utilizada para ser Heredada y no instanciada
+public abstract class User {
     private int id;
     private String name;
     private String email;
