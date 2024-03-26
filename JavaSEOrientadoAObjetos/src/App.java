@@ -3,7 +3,9 @@
 import java.util.Date;
 
 import model.Doctor;
+import model.ISchedulable;
 import model.Patient;
+import model.User;
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -17,5 +19,22 @@ public class App {
 
         Patient myPatient = new Patient("Paciente1", "paciente1@gmail.com");
         System.out.println(myPatient);
+
+        User anonymousUser = new User("Usuario anonimo", "anonimo@mail.com") {
+            @Override
+            public void showDataUser(){
+                System.out.println("Usuario temporal");
+                System.out.println("Dura muy poco y es solo un hack para: ");
+                System.out.println("Poder crear una instancia de una clase abstracta");
+            }
+        };
+        anonymousUser.showDataUser();
+
+        ISchedulable iSchedulable = new ISchedulable(){
+            @Override
+            public void schedule(Date date, String time){
+                //Esta tambien en una clase anonima, usada para crear una instancia de una interface
+            }
+        };
     }
 }
