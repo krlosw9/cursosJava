@@ -2,6 +2,7 @@ package model;
 
 // Una clase abstracta no puede ser instanciada
 // Esta clase solo es utilizada para ser Heredada y no instanciada
+// Las clases padre nunca pueden ser instanciadas, por eso las clases padres son Abstractas
 public abstract class User {
     private int id;
     private String name;
