@@ -25,6 +25,11 @@ public class Doctor extends User {
         availableAppointments.add(new Doctor.AvailableAppointment(date,time));
     }
 
+    @Override
+    public String toString() {
+        return super.toString()+"\nDoctor [speciality=" + speciality + "]";
+    }
+
     public ArrayList<AvailableAppointment> getAvailableAppointments(){
         return availableAppointments;
     }

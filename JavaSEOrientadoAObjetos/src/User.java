@@ -53,4 +53,12 @@ public class User {
             System.out.println("El numero de telefono debe ser de 8 caracteres");
         }
     }
+
+    @Override
+    public String toString() {
+        return "User [id=" + id + ", name=" + name + ", email=" + email + ", address=" + 
+        address + ", phoneNumber="+ phoneNumber + "]";
+    }
+
+    
 }

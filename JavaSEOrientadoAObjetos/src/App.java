@@ -14,5 +14,9 @@ public class App {
         for (Doctor.AvailableAppointment aA: myDoctor.getAvailableAppointments()) {
             System.out.println(aA.getDate() + " " + aA.getTime());
         }
+
+        Patient myPatient = new Patient("Paciente1", "paciente1@gmail.com");
+        System.out.println(myDoctor);
+        System.out.println(myPatient);
     }
 }
