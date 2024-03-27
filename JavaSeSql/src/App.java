@@ -10,7 +10,13 @@ public class App {
         ResultSet myRes = null;
         try {
             myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/project", "krlos", "//654321");
-            System.out.println("Conectado a DB");
+            myStamt = myConn.createStatement();
+            myRes = myStamt.executeQuery("SELECT * FROM employees");
+
+            while (myRes.next()) {
+                System.out.println(myRes.getString("first_name"));
+            }
+            
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("Error al conectar DB");
