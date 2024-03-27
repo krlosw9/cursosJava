@@ -1,22 +1,17 @@
-// import static ui.UIMenu.*;
+import static ui.UIMenu.*;
 
-import java.util.Date;
+/*import java.util.Date;
 
 import model.Doctor;
 import model.ISchedulable;
 import model.Patient;
-import model.User;
+import model.User;*/
 
 public class App {
     public static void main(String[] args) throws Exception {
-        //showMenu();
+        showMenu();
 
-        Doctor myDoctor = new Doctor("Anahi Salgado", "ana@mail.com","Pediatria");
-        System.out.println(myDoctor);
-
-        Patient myPatient = new Patient("Paciente1", "paciente1@gmail.com");
-        System.out.println(myPatient);
-
+        /*
         User anonymousUser = new User("Usuario anonimo", "anonimo@mail.com") {
             @Override
             public void showDataUser(){
@@ -34,5 +29,6 @@ public class App {
             }
         };
         iSchedulable.schedule(null, null);
+        */
     }
 }
