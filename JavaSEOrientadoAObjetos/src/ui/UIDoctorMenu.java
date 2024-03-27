@@ -21,7 +21,7 @@ public class UIDoctorMenu {
 
             Scanner sc = new Scanner(System.in);
             response = Integer.valueOf(sc.nextLine());
-            sc.close();
+            // sc.close();
 
             switch (response){
                 case 1:
@@ -85,7 +85,7 @@ public class UIDoctorMenu {
                 showDoctorMenu();
             }
 
-            sc.close();
+            // sc.close();
         }while (response != 0);
     }
 
