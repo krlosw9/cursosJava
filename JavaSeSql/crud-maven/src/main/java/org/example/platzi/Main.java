@@ -21,6 +21,20 @@ public class Main {
         } catch (Exception e) {
             System.out.println("Algo salio mal...");
             e.printStackTrace();
+        } finally {
+            try {
+                if (myConn != null) {
+                    myConn.close();
+                }
+                if (myStamt != null) {
+                    myStamt.close();
+                }
+                if (myRes != null) {
+                    myRes.close();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 }

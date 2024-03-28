@@ -49,6 +49,23 @@ public class App {
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("Algo salio mal...");
+        } finally {
+            try {
+                if (myConn != null) {
+                    myConn.close();
+                }
+                if (myStamt != null) {
+                    myStamt.close();
+                }
+                if (myPtamt != null){
+                    myPtamt.close();
+                }
+                if (myRes != null) {
+                    myRes.close();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 }
