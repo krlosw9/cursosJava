@@ -80,9 +80,14 @@ public class EmployeeRepository implements Repository<Employee> {
     }
 
     @Override
-    public void delete(Integer id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'delete'");
+    public void delete(Integer id) throws SQLException {
+        String sql = "DELETE FROM employees WHERE id = ?";
+        try (PreparedStatement myStamt = getConnection().prepareStatement(sql)) {
+            myStamt.setInt(1, id);
+            myStamt.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private Employee createEmployee(ResultSet myRes) throws SQLException {
