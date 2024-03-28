@@ -11,8 +11,6 @@ import java.sql.ResultSet;
 import org.example.platzi.model.Employee;
 import org.example.platzi.util.DatabaseConnection;
 
-import com.mysql.cj.xdevapi.PreparableStatement;
-
 public class EmployeeRepository implements Repository<Employee> {
 
     private Connection getConnection() throws SQLException{
