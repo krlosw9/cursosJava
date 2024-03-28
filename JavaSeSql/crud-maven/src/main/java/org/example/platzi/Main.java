@@ -1,18 +1,19 @@
 package org.example.platzi;
 
-import java.sql.Connection;
+// import java.sql.Connection;
 
-import org.example.platzi.model.Employee;
-import org.example.platzi.repository.EmployeeRepository;
-import org.example.platzi.repository.Repository;
-import org.example.platzi.util.DatabaseConnection;
+// import org.example.platzi.model.Employee;
+// import org.example.platzi.repository.EmployeeRepository;
+// import org.example.platzi.repository.Repository;
+// import org.example.platzi.util.DatabaseConnection;
+import org.example.platzi.view.SwingApp;
 
 public class Main {
     public static void main(String[] args) {
-        try (Connection myConn = DatabaseConnection.getInstance();) {
-            Repository<Employee> repository = new EmployeeRepository();
+        // try (Connection myConn = DatabaseConnection.getInstance();) {
+            // Repository<Employee> repository = new EmployeeRepository();
 
-            repository.findAll().forEach(System.out::println);
+            // repository.findAll().forEach(System.out::println);
             // System.out.println("\n"+repository.getById(1));;
             // Employee employee = new Employee();
             // employee.setId(7);
@@ -23,13 +24,16 @@ public class Main {
             // employee.setSalary((float)20000);
             // repository.save(employee);
             // System.out.println("-------Luego de insertar-------");
-            System.out.println("-------Luego de eliminar-------");
-            repository.delete(7);
-            repository.findAll().forEach(System.out::println);
+            // System.out.println("-------Luego de eliminar-------");
+            // repository.delete(7);
+            // repository.findAll().forEach(System.out::println);
 
-        } catch (Exception e) {
-            System.out.println("Algo salio mal...");
-            e.printStackTrace();
-        }
+            SwingApp app = new SwingApp();
+            app.setVisible(true);
+
+        // } catch (Exception e) {
+        //     System.out.println("Algo salio mal...");
+        //     e.printStackTrace();
+        // }
     }
 }
