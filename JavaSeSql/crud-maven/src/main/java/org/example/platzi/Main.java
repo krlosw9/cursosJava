@@ -1,20 +1,19 @@
 package org.example.platzi;
 
 import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
 
+import org.example.platzi.model.Employee;
+import org.example.platzi.repository.EmployeeRepository;
+import org.example.platzi.repository.Repository;
 import org.example.platzi.util.DatabaseConnection;
 
 public class Main {
     public static void main(String[] args) {
-        try (Connection myConn = DatabaseConnection.getInstance();
-            Statement myStamt = myConn.createStatement();
-            ResultSet myRes = myStamt.executeQuery("SELECT * FROM employees");) {
+        try (Connection myConn = DatabaseConnection.getInstance();) {
+            Repository<Employee> repository = new EmployeeRepository();
 
-            while (myRes.next()) {
-                System.out.println(myRes.getString("first_name"));
-            }
+            repository.findAll().forEach(System.out::println);
+            System.out.println("\n"+repository.getById(1));;
         } catch (Exception e) {
             System.out.println("Algo salio mal...");
             e.printStackTrace();
