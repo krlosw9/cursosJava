@@ -9,25 +9,29 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 
 import org.example.platzi.model.Employee;
-// import org.example.platzi.util.DatabaseConnection;
+import org.example.platzi.util.DatabaseConnection;
 
 public class EmployeeRepository implements Repository<Employee> {
 
     // private Connection getConnection() throws SQLException{
     //     return DatabaseConnection.getInstance();
     // }
-    private Connection myConn;
-
-    public EmployeeRepository(Connection myConn) {
-        this.myConn = myConn;
+    // private Connection myConn;
+    private Connection getConnection() throws SQLException {
+        return DatabaseConnection.getConnection();
     }
+
+    // public EmployeeRepository(Connection myConn) {
+    //     this.myConn = myConn;
+    // }
 
     @Override
     public List<Employee> findAll() throws SQLException {
         List<Employee> employees = new ArrayList<>();
 
         // try (Statement myStamt = getConnection().createStatement();
-        try (Statement myStamt = myConn.createStatement();
+        try (Connection myConn = getConnection();
+            Statement myStamt = myConn.createStatement();
             ResultSet myRes = myStamt.executeQuery("SELECT * FROM employees");) {
             
                 while (myRes.next()) {
@@ -46,7 +50,8 @@ public class EmployeeRepository implements Repository<Employee> {
         String sql = "SELECT * FROM employees WHERE id = ?";
 
         // try (PreparedStatement myStamt = getConnection().prepareStatement(sql)) {
-        try (PreparedStatement myStamt = myConn.prepareStatement(sql)) {
+        try (Connection myConn = getConnection();
+            PreparedStatement myStamt = myConn.prepareStatement(sql)) {
             myStamt.setInt(1, id);
             try (ResultSet myRes = myStamt.executeQuery()) {
                 if (myRes.next()) {
@@ -71,7 +76,8 @@ public class EmployeeRepository implements Repository<Employee> {
             sql = "INSERT INTO employees (first_name, pa_surname, ma_surname, email, salary, curp) VALUES(?,?,?,?,?,?)";
         }
         // try (PreparedStatement myStamt = getConnection().prepareStatement(sql)) {
-        try (PreparedStatement myStamt = myConn.prepareStatement(sql)) {
+        try (Connection myConn = getConnection();
+            PreparedStatement myStamt = myConn.prepareStatement(sql)) {
             
             myStamt.setString(1, employee.getFirst_name());
             myStamt.setString(2, employee.getPa_surname());
@@ -92,7 +98,8 @@ public class EmployeeRepository implements Repository<Employee> {
     public void delete(Integer id) throws SQLException {
         String sql = "DELETE FROM employees WHERE id = ?";
         // try (PreparedStatement myStamt = getConnection().prepareStatement(sql)) {
-        try (PreparedStatement myStamt = myConn.prepareStatement(sql)) {
+        try (Connection myConn = getConnection();
+            PreparedStatement myStamt = myConn.prepareStatement(sql)) {
             myStamt.setInt(1, id);
             myStamt.executeUpdate();
         } catch (Exception e) {
