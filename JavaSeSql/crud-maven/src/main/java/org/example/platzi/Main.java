@@ -1,12 +1,12 @@
 package org.example.platzi;
 
-import java.sql.Connection;
+// import java.sql.Connection;
 import java.sql.SQLException;
 
 import org.example.platzi.model.Employee;
 import org.example.platzi.repository.EmployeeRepository;
 import org.example.platzi.repository.Repository;
-import org.example.platzi.util.DatabaseConnection;
+// import org.example.platzi.util.DatabaseConnection;
 // import org.example.platzi.view.SwingApp;
 
 public class Main {
